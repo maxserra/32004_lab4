@@ -6,17 +6,28 @@ public class PrintAndHide : MonoBehaviour
 {
     public Renderer rend;
     private int i;
+    private int blue_stopping;
 
     // Start is called before the first frame update
     void Start()
     {
         i = 3;
+        blue_stopping = (int)Random.Range(150, 250);
     }
 
     // Update is called once per frame
     void Update()
     {
         i++;
-        Debug.Log(name + ":" + i);
+        Debug.Log(gameObject.name + ":" + i);
+
+        if ((gameObject.tag == "Red") & (i == 100))
+        {
+            gameObject.SetActive(false);
+        }
+        if ((gameObject.tag == "Blue") & (i == blue_stopping))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
