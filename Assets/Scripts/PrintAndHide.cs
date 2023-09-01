@@ -12,7 +12,7 @@ public class PrintAndHide : MonoBehaviour
     void Start()
     {
         i = 3;
-        blue_stopping = (int)Random.Range(150, 250);
+        blue_stopping = (int)Random.Range(150, 251);
     }
 
     // Update is called once per frame
@@ -27,7 +27,8 @@ public class PrintAndHide : MonoBehaviour
         }
         if ((gameObject.tag == "Blue") & (i == blue_stopping))
         {
-            gameObject.SetActive(false);
+            rend = (Renderer)gameObject.GetComponent("Renderer");
+            rend.enabled = false;
         }
     }
 }
